@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australia Future Resource Fund</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1f35;
+  --navy2: #162d48;
+  --gold: #c8930a;
+  --gold2: #e8b030;
+  --teal: #0b6b5e;
+  --teal2: #0d8a78;
+  --paper: #f8f5ef;
+  --ink: #1a1a1a;
+  --muted: #6a7a86;
+  --rule: #d8d0c0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,31,53,0.96);backdrop-filter:blur(12px);
+  padding:0 20px;
+  border-bottom:1px solid rgba(200,147,10,0.2);
+}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+.nav-links{display:flex;gap:4px;}
+.nav-link{
+  padding:6px 12px;border-radius:4px;font-size:12px;font-weight:500;
+  color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;
+  text-decoration:none;
+}
+.nav-link:hover{color:white;background:rgba(255,255,255,0.08);}
+@media(max-width:600px){.nav-links{display:none;}}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);
+  padding:120px 20px 80px;
+  position:relative;overflow:hidden;
+  min-height:100vh;display:flex;align-items:center;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,147,10,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-50px;left:-50px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(11,107,94,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
+.hero-kicker{
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-kicker::before{content:'';width:40px;height:1px;background:var(--gold);}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,8vw,72px);
+  font-weight:900;line-height:1.05;
+  color:white;margin-bottom:28px;
+}
+.hero-title em{color:var(--gold2);font-style:normal;}
+.hero-sub{
+  font-size:clamp(15px,2.5vw,19px);font-weight:300;
+  color:rgba(255,255,255,0.65);line-height:1.7;
+  max-width:640px;margin-bottom:40px;
+}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.hero-stat{}
+.hs-val{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--gold2);}
+.hs-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,0.3);font-size:12px;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:bob 2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+/* ── SECTION BASE ── */
+section{padding:80px 20px;}
+.inner{max-width:1000px;margin:0 auto;}
+.section-label{
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,5vw,38px);font-weight:700;
+  line-height:1.2;margin-bottom:20px;
+}
+.section-body{font-size:15px;line-height:1.8;color:#444;max-width:720px;}
+
+/* ── FLOW SECTION ── */
+#flow{background:var(--navy);}
+#flow .section-label{color:var(--gold);}
+#flow .section-title{color:white;}
+#flow .section-body{color:rgba(255,255,255,0.6);}
+
+.flow-diagram{margin-top:40px;display:flex;flex-direction:column;gap:0;}
+.flow-node{
+  display:grid;grid-template-columns:56px 1fr;gap:0;
+  cursor:default;
+}
+.fn-num{
+  width:56px;display:flex;flex-direction:column;align-items:center;
+  padding-top:18px;
+}
+.fn-circle{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:white;
+  flex-shrink:0;
+}
+.fn-line{flex:1;width:2px;background:rgba(200,147,10,0.2);margin-top:4px;}
+.fn-body{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;padding:20px;margin:0 0 4px 0;
+  transition:all 0.3s;
+}
+.fn-body:hover{background:rgba(255,255,255,0.07);border-color:rgba(200,147,10,0.3);}
+.fn-who{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
+.fn-what{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;}
+.fn-amount{
+  display:inline-block;margin-top:8px;
+  background:rgba(200,147,10,0.15);border:1px solid rgba(200,147,10,0.3);
+  border-radius:20px;padding:4px 12px;
+  font-family:'DM Mono',monospace;font-size:12px;color:var(--gold2);
+}
+
+.arrow-connector{
+  display:flex;align-items:center;padding-left:56px;gap:12px;
+  padding-top:6px;padding-bottom:6px;
+}
+.ac-dot{width:6px;height:6px;border-radius:50%;background:rgba(200,147,10,0.5);flex-shrink:0;}
+.ac-label{font-size:11px;color:rgba(200,147,10,0.6);font-weight:500;}
+
+/* ── BENEFITS TABS ── */
+#benefits{background:white;}
+.tabs-header{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
+.tab-btn{
+  padding:10px 20px;border-radius:100px;
+  border:2px solid var(--rule);background:transparent;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  cursor:pointer;transition:all 0.2s;color:var(--muted);
+}
+.tab-btn.active{background:var(--navy);color:white;border-color:var(--navy);}
+.tab-btn:hover:not(.active){border-color:var(--navy);color:var(--navy);}
+
+.tab-panel{display:none;animation:fadeUp 0.3s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px;}
+.benefit-card{
+  border-radius:12px;padding:22px;
+  border-top:4px solid;
+  background:var(--paper);
+}
+.bc-icon{font-size:28px;margin-bottom:12px;}
+.bc-title{font-size:15px;font-weight:700;margin-bottom:8px;}
+.bc-body{font-size:13px;line-height:1.7;color:#555;}
+
+.big-statement{
+  background:var(--navy);border-radius:16px;padding:28px;
+  margin-top:24px;
+}
+.bs-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(16px,3vw,20px);color:white;line-height:1.5;
+  margin-bottom:12px;
+}
+.bs-data{display:flex;gap:24px;flex-wrap:wrap;margin-top:16px;}
+.bs-datum{}
+.bsd-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--gold2);}
+.bsd-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
+
+/* ── CALCULATOR ── */
+#calculator{background:var(--paper);}
+.calc-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;margin-top:32px;}
+@media(max-width:700px){.calc-grid{grid-template-columns:1fr;}}
+.calc-controls{display:flex;flex-direction:column;gap:20px;}
+.ctrl-label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:8px;}
+.ctrl-label span{color:var(--teal);font-family:'DM Mono',monospace;}
+input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer;}
+
+.calc-output{background:var(--navy);border-radius:16px;padding:24px;}
+.co-title{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.co-chart{height:180px;display:flex;align-items:flex-end;gap:6px;margin-bottom:16px;}
+.co-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.co-bar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative;}
+.cb-levy{background:var(--teal2);border-radius:2px 2px 0 0;transition:height 0.4s;}
+.cb-return{background:var(--gold);opacity:0.85;border-radius:0;transition:height 0.4s;}
+.cb-super{background:rgba(255,255,255,0.2);border-radius:0;transition:height 0.4s;}
+.co-bar-yr{font-size:10px;color:rgba(255,255,255,0.4);font-family:'DM Mono',monospace;}
+.co-bar-val{font-size:11px;font-weight:600;color:rgba(255,255,255,0.9);font-family:'DM Mono',monospace;}
+.co-total{
+  background:rgba(200,147,10,0.15);border:1px solid rgba(200,147,10,0.3);
+  border-radius:10px;padding:14px;text-align:center;
+}
+.cot-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:4px;}
+.cot-val{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold2);}
+.cot-sub{font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;}
+.calc-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;}
+.cl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,0.5);}
+.cl-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+/* ── NORWAY ── */
+#norway{background:white;}
+.norway-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;}
+@media(max-width:640px){.norway-grid{grid-template-columns:1fr;}}
+.norway-card{border-radius:14px;padding:24px;}
+.nc-norway{background:var(--navy);}
+.nc-aus{background:var(--teal);;}
+.nc-flag{font-size:32px;margin-bottom:8px;}
+.nc-name{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;}
+.nc-stat-row{margin-bottom:10px;}
+.nc-stat-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:2px;}
+.nc-stat-val{font-size:15px;font-weight:600;color:white;}
+
+.norway-key{
+  background:var(--paper);border-radius:14px;padding:24px;
+  border-left:4px solid var(--gold);margin-top:24px;
+}
+.nk-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.nk-text{font-size:15px;line-height:1.75;color:#444;}
+
+/* ── GOVERNANCE ── */
+#governance{background:var(--paper);}
+.principles{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+.principle{
+  display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;
+  background:white;border-radius:12px;padding:18px;
+  border:1px solid var(--rule);transition:all 0.25s;cursor:default;
+}
+.principle:hover{border-color:var(--teal);transform:translateX(4px);}
+.p-num{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--navy);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:13px;font-weight:500;flex-shrink:0;
+}
+.p-title{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--navy);}
+.p-body{font-size:13px;line-height:1.65;color:#555;}
+
+/* ── CTA ── */
+#cta{background:var(--navy);text-align:center;padding:80px 20px;}
+.cta-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,5vw,40px);font-weight:700;
+  color:white;margin-bottom:16px;line-height:1.2;
+}
+.cta-title em{color:var(--gold2);font-style:normal;}
+.cta-body{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.75;max-width:600px;margin:0 auto 32px;}
+.cta-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.pill{
+  padding:10px 24px;border-radius:100px;font-size:13px;font-weight:600;
+  cursor:pointer;transition:all 0.2s;
+}
+.pill-primary{background:var(--gold);color:var(--navy);}
+.pill-primary:hover{background:var(--gold2);}
+.pill-secondary{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);}
+.pill-secondary:hover{background:rgba(255,255,255,0.18);}
+
+/* ── MOBILE GRID FIX ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+
+/* ── LOBBY SECTION ── */
+#lobby{background:var(--navy);}
+#lobby .section-label{color:var(--gold);}
+#lobby .section-title{color:white;}
+#lobby .section-body{color:rgba(255,255,255,0.6);}
+.talking-points{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+.tp-card{
+  border-radius:12px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+}
+.tp-header{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;
+  padding:16px 18px;background:rgba(255,255,255,0.04);
+  transition:background 0.2s;
+}
+.tp-card:hover .tp-header{background:rgba(255,255,255,0.08);}
+.tp-badge{
+  background:rgba(184,64,32,0.25);border:1px solid rgba(184,64,32,0.4);
+  border-radius:6px;padding:3px 8px;
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:#e08060;white-space:nowrap;
+}
+.tp-claim{font-size:14px;font-weight:600;color:white;line-height:1.3;}
+.tp-chevron{color:rgba(255,255,255,0.3);font-size:16px;transition:transform 0.25s;flex-shrink:0;}
+.tp-card.open .tp-chevron{transform:rotate(180deg);}
+.tp-body{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+  background:rgba(255,255,255,0.02);
+}
+.tp-card.open .tp-body{max-height:600px;}
+.tp-inner{padding:18px 18px 20px;}
+.tp-counter-label{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;
+}
+.tp-counter{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.75;}
+.tp-counter strong{color:white;}
+.tp-stat{
+  display:inline-block;margin-top:12px;
+  background:rgba(200,147,10,0.12);border:1px solid rgba(200,147,10,0.25);
+  border-radius:8px;padding:8px 14px;
+  font-size:12px;color:var(--gold2);line-height:1.5;
+}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.4,0,0.2,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">AFRF</div>
+    <div class="nav-links">
+      <a class="nav-link" href="#flow">How It Works</a>
+      <a class="nav-link" href="#whopays">Who Pays</a>
+      <a class="nav-link" href="#benefits">Benefits</a>
+      <a class="nav-link" href="#calculator">Projections</a>
+      <a class="nav-link" href="#dividend">Fiscal Dividend</a>
+      <a class="nav-link" href="#norway">Precedent</a>
+      <a class="nav-link" href="#lobby">Talking Points</a>
+      <a class="nav-link" href="#governance">Governance</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Policy Concept — Australia</div>
+    <h1 class="hero-title">
+      Australia<br><em>Future Resource</em><br>Fund
+    </h1>
+    <p class="hero-sub">
+      A sovereign wealth mechanism that converts finite gas export revenue into permanent national capital — with superannuation as the co-investor. The PRRT is scrapped and replaced with a transparent revenue levy. One simple rate. No manipulation.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hs-val">$17B</div>
+        <div class="hs-label">Annual levy revenue</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-val">$4T</div>
+        <div class="hs-label">Super pool to co-invest</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-val">$3T</div>
+        <div class="hs-label">Norway built same way</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('flow').scrollIntoView()">
+    <span>Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M8 2v14M2 12l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="flow">
+  <div class="inner">
+    <div class="section-label reveal">The Mechanism</div>
+    <h2 class="section-title reveal">Three parties. Clean roles.</h2>
+    <p class="section-body reveal">Government collects the full levy on day one. The Fund invests it. Superannuation co-invests alongside. No private credit arrangements, no compounding debt, no politically loaded mandates.</p>
+
+    <div class="flow-diagram reveal" style="margin-top:40px;">
+
+      <div class="flow-node">
+        <div class="fn-num">
+          <div class="fn-circle" style="background:var(--teal2);">01</div>
+          <div class="fn-line"></div>
+        </div>
+        <div class="fn-body">
+          <div class="fn-who" style="color:var(--teal2);">⛽ Gas Companies</div>
+          <div class="fn-what">The PRRT is abolished. In its place: a 25% levy on gross LNG export revenue assessed directly against ATO customs data. Export volume and price are recorded on every shipment — independently verifiable, impossible to manipulate. A single earnings floor of 80% of EBITDA activates only in a genuinely distressed year, preventing confiscation without creating a shelter.</div>
+          <span class="fn-amount">PRRT abolished — one clean obligation</span>
+        </div>
+      </div>
+      <div class="arrow-connector"><div class="ac-dot"></div><div class="ac-label">Treasury deposits into the Fund under legislated schedule</div></div>
+
+      <div class="flow-node">
+        <div class="fn-num">
+          <div class="fn-circle" style="background:var(--gold);">02</div>
+          <div class="fn-line"></div>
+        </div>
+        <div class="fn-body">
+          <div class="fn-who" style="color:var(--gold);">🏛 Government / Treasury</div>
+          <div class="fn-what">Receives the full levy in cash. Deposits receipts into the Australia Future Resource Fund under a legislated schedule. The Fund operates off-balance-sheet, consistent with the existing Future Fund treatment. No deferral, no compromise on revenue.</div>
+          <span class="fn-amount">100% collected on day one</span>
+        </div>
+      </div>
+      <div class="arrow-connector"><div class="ac-dot"></div><div class="ac-label">Fund invests across diversified long-duration assets</div></div>
+
+      <div class="flow-node">
+        <div class="fn-num">
+          <div class="fn-circle" style="background:#4a6fa0;">03</div>
+          <div class="fn-line"></div>
+        </div>
+        <div class="fn-body">
+          <div class="fn-who" style="color:#8aaedc;">🌏 Australia Future Resource Fund</div>
+          <div class="fn-what">An independent sovereign vehicle modelled on the Future Fund Act. Invests on a mandate of maximising risk-adjusted returns for current and future Australians. No sectoral, political or ideological investment constraints — asset allocation decisions are made by the Board on return merit alone. Issues sovereign-backed infrastructure bonds to institutional investors.</div>
+          <span class="fn-amount">Return mandate — not a policy mandate</span>
+        </div>
+      </div>
+      <div class="arrow-connector"><div class="ac-dot"></div><div class="ac-label">Sovereign-backed infrastructure bonds at 7–8% yield</div></div>
+
+      <div class="flow-node">
+        <div class="fn-num">
+          <div class="fn-circle" style="background:#c8930a;">04</div>
+        </div>
+        <div class="fn-body">
+          <div class="fn-who" style="color:var(--gold2);">🏦 Superannuation Funds</div>
+          <div class="fn-what">Purchase sovereign-backed AFRF bonds at a target yield of 7–8% per annum. Commonwealth credit quality allows trustees to satisfy fiduciary obligations without complex credit assessment. Members of every participating fund gain direct exposure to the returns generated by Australia's gas wealth — not to gas company credit risk.</div>
+          <span class="fn-amount">Every Australian worker participates</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO PAYS -->
+<section id="whopays" style="background:var(--paper);">
+  <div class="inner">
+    <div class="section-label reveal">The Levy Base</div>
+    <h2 class="section-title reveal">Ten plants. Six companies.<br>One-fifth of global LNG supply.</h2>
+    <p class="section-body reveal">Australia operates ten LNG export facilities — the largest concentration of export infrastructure in the world. The 25% levy applies to gross export revenue from all ten. These are the projects and the companies that would fund the AFRF.</p>
+
+    <div style="margin-top:32px;" class="reveal">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Operating export facilities</div>
+      <div id="plant-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;"></div>
+    </div>
+
+    <div style="margin-top:28px;" class="reveal">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Major levy contributors</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;" id="company-grid"></div>
+    </div>
+
+    <div style="margin-top:28px;" class="reveal">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;">Pipeline — coming online 2026</div>
+      <div class="two-col">
+        <div style="background:white;border-radius:12px;padding:18px;border:1px solid var(--rule);border-left:4px solid var(--gold);">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px;">🔜 Scarborough LNG</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Woodside (operator) — Western Australia</div>
+          <div style="font-size:12px;line-height:1.65;color:#444;">67% complete as of December 2025. Targeting first LNG cargo 2026. Capacity 9 MTPA — one of the largest single projects in Australian history. Will materially increase the levy base.</div>
+        </div>
+        <div style="background:white;border-radius:12px;padding:18px;border:1px solid var(--rule);border-left:4px solid var(--teal);">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px;">🔜 Barossa Gas Field</div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Santos (operator) — Northern Territory</div>
+          <div style="font-size:12px;line-height:1.65;color:#444;">Launched January 2026, restarting Darwin LNG after a two-year suspension. Extends Darwin LNG's operating life and brings Santos back to full northern export capacity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="benefits">
+  <div class="inner">
+    <div class="section-label reveal">Who Benefits</div>
+    <h2 class="section-title reveal">Built so every party wins.</h2>
+
+    <div class="tabs-header reveal">
+      <button class="tab-btn active" onclick="showTab('gov',this)">🏛 Government</button>
+      <button class="tab-btn" onclick="showTab('super',this)">🏦 Superannuation</button>
+      <button class="tab-btn" onclick="showTab('gas',this)">⛽ Gas Companies</button>
+      <button class="tab-btn" onclick="showTab('public',this)">🇦🇺 Australians</button>
+    </div>
+
+    <div id="tab-gov" class="tab-panel active">
+      <div class="big-statement">
+        <div class="bs-quote">"The government collects the full levy on day one — and builds a permanent sovereign wealth asset in parallel."</div>
+        <div class="bs-data">
+          <div class="bs-datum"><div class="bsd-val">$17B</div><div class="bsd-label">Collected annually</div></div>
+          <div class="bs-datum"><div class="bsd-val">Day 1</div><div class="bsd-label">Revenue certainty</div></div>
+          <div class="bs-datum"><div class="bsd-val">$700B+</div><div class="bsd-label">Projected fund at yr 20</div></div>
+        </div>
+      </div>
+      <div class="benefit-grid" style="margin-top:20px;">
+        <div class="benefit-card" style="border-color:var(--teal);">
+          <div class="bc-icon">💰</div>
+          <div class="bc-title">Full Revenue, Immediately</div>
+          <div class="bc-body">The levy replaces the PRRT and is collected by the ATO on gross export revenue. No private financing arrangements, no deferral, no uplift provisions for the industry to exploit. Revenue certainty from day one.</div>
+        </div>
+        <div class="benefit-card" style="border-color:var(--gold);">
+          <div class="bc-icon">🏛</div>
+          <div class="bc-title">Politically Durable</div>
+          <div class="bc-body">The Fund mandate is returns-based — not a green fund, not a transition fund. This mirrors Norway exactly. No ideological framing means it survives changes of government and resists legal challenge on intent grounds.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#4a6fa0;">
+          <div class="bc-icon">⏳</div>
+          <div class="bc-title">Intergenerational Wealth</div>
+          <div class="bc-body">The finite resource is converted into permanent financial capital before it is exhausted. Australia's gas reserves are depleting — the Fund ensures their value outlasts the last LNG shipment by generations.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-super" class="tab-panel">
+      <div class="big-statement">
+        <div class="bs-quote">"Super funds get sovereign-backed yield at 7–8%. The same credit quality as Commonwealth bonds — at infrastructure premium rates."</div>
+        <div class="bs-data">
+          <div class="bs-datum"><div class="bsd-val">7–8%</div><div class="bsd-label">Target bond yield</div></div>
+          <div class="bs-datum"><div class="bsd-val">AAA</div><div class="bsd-label">Effective credit quality</div></div>
+          <div class="bs-datum"><div class="bsd-val">$40B+</div><div class="bsd-label">Deployable at 1% of pool</div></div>
+        </div>
+      </div>
+      <div class="benefit-grid" style="margin-top:20px;">
+        <div class="benefit-card" style="border-color:var(--gold);">
+          <div class="bc-icon">📊</div>
+          <div class="bc-title">Fills a Genuine Gap</div>
+          <div class="bc-body">Australia's super pool faces a structural shortage of long-dated, sovereign-quality yield in Australian dollars. AFRF bonds create this instrument at scale — a new asset class, not a repackaged one.</div>
+        </div>
+        <div class="benefit-card" style="border-color:var(--teal);">
+          <div class="bc-icon">🛡</div>
+          <div class="bc-title">No Gas Company Credit Risk</div>
+          <div class="bc-body">Super funds invest in the sovereign vehicle — not in gas companies. The credit risk sits with the Commonwealth. Trustees can satisfy fiduciary obligations to members without complex credit assessment of a declining industry.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#4a6fa0;">
+          <div class="bc-icon">⚖️</div>
+          <div class="bc-title">Fiduciary Defensible</div>
+          <div class="bc-body">Sovereign-backed infrastructure bonds at 7–8% are straightforwardly in members' best financial interests. This passes the trustee test that direct gas company lending could not — making participation voluntary and commercially rational.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-gas" class="tab-panel">
+      <div class="big-statement">
+        <div class="bs-quote">"The PRRT is scrapped. Gas companies get a fixed rate, a clear calculation, an earnings floor for bad years — and a neutral fund mandate that removes the punitive intent argument for good."</div>
+        <div class="bs-data">
+          <div class="bs-datum"><div class="bsd-val">PRRT</div><div class="bsd-label">Abolished</div></div>
+          <div class="bs-datum"><div class="bsd-val">25%</div><div class="bsd-label">Fixed revenue rate</div></div>
+          <div class="bs-datum"><div class="bsd-val">80%</div><div class="bsd-label">EBITDA floor — distressed years only</div></div>
+        </div>
+      </div>
+      <div class="benefit-grid" style="margin-top:20px;">
+        <div class="benefit-card" style="border-color:var(--teal);">
+          <div class="bc-icon">🗑</div>
+          <div class="bc-title">PRRT Abolished</div>
+          <div class="bc-body">The Petroleum Resource Rent Tax — with its cost uplift provisions, intercompany debt offsets, and transfer pricing shelters — is replaced entirely. One rate. One base. Assessed against customs data the ATO already holds. The compliance industry built around PRRT minimisation has no role in this system.</div>
+        </div>
+        <div class="benefit-card" style="border-color:var(--gold);">
+          <div class="bc-icon">🛟</div>
+          <div class="bc-title">The Earnings Floor</div>
+          <div class="bc-body">The levy is capped at 80% of EBITDA in any financial year. This circuit breaker only activates when global LNG prices collapse to the point where a pure revenue levy would exceed actual profit. In normal years it is irrelevant. In a genuinely distressed year it prevents confiscation — and removes the industry's only legitimate grievance.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#c04040;">
+          <div class="bc-icon">👁</div>
+          <div class="bc-title">The Honest Trade-Off</div>
+          <div class="bc-body">Removing the punitive intent argument also removes the gas lobby's best legal weapon. The AFRF's neutral mandate makes the levy harder to challenge in court and harder to repeal at the next election. Gas companies get certainty and a floor — but the levy is more permanent, not less. That is the honest trade.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#4a6fa0;">
+          <div class="bc-icon">🔮</div>
+          <div class="bc-title">20-Year Planning Clarity</div>
+          <div class="bc-body">A fixed revenue rate with a defined floor allows gas companies to model the obligation accurately across the full life of a project. Scarborough, Barossa, Papua LNG — all can be financed with known tax parameters rather than a profits tax whose effective rate depends on year-end accounting outcomes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-public" class="tab-panel">
+      <div class="big-statement">
+        <div class="bs-quote">"Once the Fund reaches scale, a legislated fiscal dividend releases billions annually into the budget — for cost of living relief, housing supply, and essential services like the NDIS. The Fund itself stays untouched."</div>
+        <div class="bs-data">
+          <div class="bs-datum"><div class="bsd-val">$9B</div><div class="bsd-label">Fiscal dividend at year 10</div></div>
+          <div class="bs-datum"><div class="bsd-val">$21B</div><div class="bsd-label">Fiscal dividend at year 20</div></div>
+          <div class="bs-datum"><div class="bsd-val">Principal</div><div class="bsd-label">Never touched — keeps growing</div></div>
+        </div>
+      </div>
+      <div class="benefit-grid" style="margin-top:20px;">
+        <div class="benefit-card" style="border-color:var(--gold);">
+          <div class="bc-icon">🏠</div>
+          <div class="bc-title">Housing Supply</div>
+          <div class="bc-body">A portion of the annual fiscal dividend is directed to social and affordable housing infrastructure — the one area where federal capital investment has the most direct impact on supply. Not ongoing welfare spending, but productive capital that builds lasting stock.</div>
+        </div>
+        <div class="benefit-card" style="border-color:var(--teal);">
+          <div class="bc-icon">♿</div>
+          <div class="bc-title">Essential Services — NDIS</div>
+          <div class="bc-body">The NDIS faces a structural funding gap that grows as the scheme matures. A dedicated fiscal dividend allocation — indexed to scheme growth — puts the NDIS on a permanent funding footing without annual budget brinkmanship. The same principle applies to aged care and public hospitals.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#4a6fa0;">
+          <div class="bc-icon">🛒</div>
+          <div class="bc-title">Cost of Living Relief</div>
+          <div class="bc-body">A share of the dividend is available for direct cost of living support — energy bill relief, childcare, rent assistance. Parliament allocates this through the normal budget process. The Fund sets no constraints on how relief is structured; it simply makes the money available every year.</div>
+        </div>
+        <div class="benefit-card" style="border-color:#c8930a;">
+          <div class="bc-icon">🔒</div>
+          <div class="bc-title">The Fund Stays Intact</div>
+          <div class="bc-body">The fiscal dividend is drawn from returns — not principal. The Fund keeps compounding. At 3% drawdown on a 7% return, the Fund grows at 4% net annually even after the dividend is paid. This is the Norway fiscal rule applied directly: spend from returns, preserve the asset.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calculator">
+  <div class="inner">
+    <div class="section-label reveal">Fund Projections</div>
+    <h2 class="section-title reveal">What gets built over time.</h2>
+    <div class="calc-grid reveal">
+      <div class="calc-controls">
+        <div>
+          <div class="ctrl-label">Annual levy inflow <span id="lbl-levy">$17B</span></div>
+          <input type="range" id="sl-levy" min="10" max="25" value="17" step="1" oninput="calcRender()">
+        </div>
+        <div>
+          <div class="ctrl-label">Annual investment return <span id="lbl-ret">7%</span></div>
+          <input type="range" id="sl-ret" min="4" max="12" value="7" oninput="calcRender()">
+        </div>
+        <div>
+          <div class="ctrl-label">Super co-investment (% of $4T pool) <span id="lbl-co">1%</span></div>
+          <input type="range" id="sl-co" min="0" max="5" value="1" oninput="calcRender()">
+        </div>
+
+        <div style="background:white;border-radius:12px;padding:18px;border:1px solid var(--rule);margin-top:8px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">For context</div>
+          <div style="font-size:13px;color:#444;line-height:1.8;">
+            The Future Fund holds <strong>~$230B</strong> after 18 years.<br>
+            Norway's fund holds <strong>~$3T</strong> after 34 years.<br>
+            Australia's super pool grows at <strong>~$100B/yr</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-output">
+        <div class="co-title">Fund value at year —</div>
+        <div class="co-chart" id="co-chart"></div>
+        <div class="calc-legend">
+          <div class="cl-item"><div class="cl-dot" style="background:var(--teal2)"></div>Levy contributions</div>
+          <div class="cl-item"><div class="cl-dot" style="background:var(--gold)"></div>Investment returns</div>
+          <div class="cl-item"><div class="cl-dot" style="background:rgba(255,255,255,0.2)"></div>Super co-investment</div>
+        </div>
+        <div class="co-total" style="margin-top:14px;">
+          <div class="cot-label">Total fund value at year 20</div>
+          <div class="cot-val" id="yr20-val">—</div>
+          <div class="cot-sub" id="yr20-sub">—</div>
+        </div>
+        <div style="margin-top:10px;background:rgba(200,147,10,0.1);border:1px solid rgba(200,147,10,0.25);border-radius:10px;padding:12px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Fiscal dividend (3% annual drawdown)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="text-align:center;">
+              <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--gold2);" id="div-yr10">—</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px;">per year at yr 10</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--gold2);" id="div-yr20">—</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px;">per year at yr 20</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:8px;text-align:center;">Drawn from returns only — principal untouched</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FISCAL DIVIDEND -->
+<section id="dividend" style="background:white;">
+  <div class="inner">
+    <div class="section-label reveal">The Fiscal Rule</div>
+    <h2 class="section-title reveal">The Fund stays intact.<br>The dividend does the work.</h2>
+    <p class="section-body reveal">The Fund's investment mandate is never touched. Once it reaches sufficient scale, a separate piece of legislation — the fiscal rule — releases up to 3% of the Fund's value annually into a dedicated national account. Parliament allocates that account. The Fund keeps compounding.</p>
+
+    <div class="two-col reveal" style="margin-top:32px;">
+      <div style="background:var(--navy);border-radius:14px;padding:22px;color:white;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">The Fund</div>
+        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">Pure returns mandate</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;">Invests for maximum risk-adjusted return. Board makes all decisions. No policy constraints. Principal never drawn down. Grows in perpetuity.</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.4);">Governed by Fund legislation — cannot be amended by ministerial instrument</div>
+      </div>
+      <div style="background:var(--teal);border-radius:14px;padding:22px;color:white;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:12px;">The Fiscal Dividend</div>
+        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">Parliament allocates</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;">Up to 3% of Fund value released annually into a national account. Parliament decides allocation through the normal budget process each year.</div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.2);font-size:12px;color:rgba(255,255,255,0.6);">Governed by separate fiscal rule legislation — adjustable by government of the day</div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;" class="reveal">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Proposed allocation framework</div>
+      <div id="alloc-bars" style="display:flex;flex-direction:column;gap:10px;"></div>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+        <div style="font-size:11px;color:var(--muted);">Sliders are indicative — Parliament sets final allocation each budget cycle</div>
+      </div>
+
+      <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;" id="alloc-cards"></div>
+    </div>
+
+    <div style="background:var(--paper);border-radius:14px;padding:22px;border-left:4px solid var(--gold);margin-top:28px;" class="reveal">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Why the separation matters</div>
+      <div style="font-size:14px;line-height:1.8;color:#444;">
+        Embedding spending allocations inside the Fund's mandate would compromise its independence and hand critics the argument that the Fund is a political instrument. The fiscal rule keeps the two completely separate — the same design Norway has used since 2001. The Fund remains commercially credible to super fund trustees. The dividend remains democratically accountable to Parliament. Neither contaminates the other.
+      </div>
+    </div>
+  </div>
+</section>
+<section id="norway">
+  <div class="inner">
+    <div class="section-label reveal">The Precedent</div>
+    <h2 class="section-title reveal">Norway did this. It worked.</h2>
+    <p class="section-body reveal">In 1990, Norway established a sovereign wealth fund to capture petroleum tax revenue. The mandate was simple: maximise long-term returns for current and future Norwegians. No policy agenda. No ideological constraints. Fifty years later, it is the largest sovereign wealth fund on earth.</p>
+
+    <div class="norway-grid reveal">
+      <div class="norway-card nc-norway">
+        <div class="nc-flag">🇳🇴</div>
+        <div class="nc-name">Norway — Government Pension Fund Global</div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Established</div><div class="nc-stat-val">1990</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Funding source</div><div class="nc-stat-val">Petroleum production tax (78% effective rate)</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Current assets</div><div class="nc-stat-val">~$3 trillion</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Investment mandate</div><div class="nc-stat-val">Maximise risk-adjusted returns — no policy constraints</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Returns vs contributions</div><div class="nc-stat-val">Over half the fund's value is now investment returns</div></div>
+      </div>
+      <div class="norway-card nc-aus">
+        <div class="nc-flag">🇦🇺</div>
+        <div class="nc-name">Australia — Future Resource Fund (proposed)</div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Proposed commencement</div><div class="nc-stat-val">Upon levy legislation</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Funding source</div><div class="nc-stat-val">LNG export levy (25% of gross revenue)</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Projected assets at yr 20</div><div class="nc-stat-val" id="norway-proj">~$700B+</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Investment mandate</div><div class="nc-stat-val">Maximise risk-adjusted returns — no policy constraints</div></div>
+        <div class="nc-stat-row"><div class="nc-stat-label">Australian innovation</div><div class="nc-stat-val">Returns distributed via super system — every worker participates</div></div>
+      </div>
+    </div>
+
+    <div class="norway-key reveal">
+      <div class="nk-label">The Critical Design Decision</div>
+      <div class="nk-text">Norway's fund is durable because its mandate contains no policy agenda. It was not established to achieve any environmental, industrial or social outcome. It was established to convert finite petroleum wealth into permanent financial wealth. That single principle has survived eleven changes of government. The AFRF adopts it directly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section id="governance">
+  <div class="inner">
+    <div class="section-label reveal">Independence</div>
+    <h2 class="section-title reveal">Governance principles.</h2>
+    <p class="section-body reveal">The Fund's independence from political direction is essential to its credibility with institutional investors and to its legal durability. Five foundational principles are proposed.</p>
+
+    <div class="principles reveal">
+      <div class="principle">
+        <div class="p-num">01</div>
+        <div>
+          <div class="p-title">Legislative Independence</div>
+          <div class="p-body">The Board is appointed by the Treasurer but cannot be directed by the Treasurer. Board decisions on asset allocation are final and not subject to ministerial approval. Modelled directly on the Future Fund Act 2006.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">02</div>
+        <div>
+          <div class="p-title">Mandate Stability</div>
+          <div class="p-body">The mandate is defined in primary legislation and can only be amended by Act of Parliament. Ministerial instruments cannot modify the investment mandate. The mandate survives changes of government.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">03</div>
+        <div>
+          <div class="p-title">Full Transparency</div>
+          <div class="p-body">The Fund publishes quarterly holdings data, annual performance reports, and an independently audited statement of compliance with the mandate. Every dollar is publicly accountable.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">04</div>
+        <div>
+          <div class="p-title">Non-Interference Principle</div>
+          <div class="p-body">The Fund may not hold a controlling interest in any Australian company. It invests as a financial participant, not a strategic one. This prevents the Fund from becoming a vehicle for industrial policy.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">05</div>
+        <div>
+          <div class="p-title">Member Returns</div>
+          <div class="p-body">Returns from AFRF bonds are distributed to superannuation members through their existing fund structure, with no government intermediation of individual returns. The mechanism is distribution through markets, not through government.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOBBY TALKING POINTS -->
+<section id="lobby">
+  <div class="inner">
+    <div class="section-label reveal">Responding to the Lobby</div>
+    <h2 class="section-title reveal">Four claims. Four direct answers.</h2>
+    <p class="section-body reveal">The gas industry has a well-rehearsed set of objections. Each one has a direct counter grounded in data. Tap each claim to see the response.</p>
+
+    <div class="talking-points reveal">
+
+      <div class="tp-card" onclick="toggleTp(this)">
+        <div class="tp-header">
+          <div class="tp-badge">Lobby claim</div>
+          <div class="tp-claim">"Jurisdictional complexity makes a federal levy unworkable — states and territories already have their own royalty regimes."</div>
+          <div class="tp-chevron">▾</div>
+        </div>
+        <div class="tp-body"><div class="tp-inner">
+          <div class="tp-counter-label">The answer</div>
+          <div class="tp-counter">
+            The jurisdictional argument collapses under scrutiny — because the complexity it cites is itself evidence of failure, not a barrier to reform.<br><br>
+            <strong>The AFRF levy is a federal export levy.</strong> Under Section 90 of the Constitution, the Commonwealth has exclusive power over export duties. A levy assessed at the point of export — against customs data the ATO already holds — sits entirely within Commonwealth jurisdiction. No state royalty regime intersects with it.<br><br>
+            <strong>State royalties remain a separate, parallel instrument.</strong> The levy operates at the export border; state royalties operate at the wellhead. The two instruments don't interact. States keep whatever royalties they currently collect.<br><br>
+            <strong>The complexity the lobby describes is actually a federal failure.</strong> Six of Australia's ten LNG export facilities pay zero royalties — state or federal — because they extract gas from Commonwealth waters and the federal government has simply never charged for it. The lobby is asking Australia not to fix a problem they created.
+          </div>
+          <div class="tp-stat">56% of Australian LNG exports attract zero royalties — state or federal.<br>Most of this gas is extracted from Commonwealth waters.</div>
+        </div></div>
+      </div>
+
+      <div class="tp-card" onclick="toggleTp(this)">
+        <div class="tp-header">
+          <div class="tp-badge">Lobby claim</div>
+          <div class="tp-claim">"The industry already pays $21.9 billion in taxes and royalties — it's paying its fair share."</div>
+          <div class="tp-chevron">▾</div>
+        </div>
+        <div class="tp-body"><div class="tp-inner">
+          <div class="tp-counter-label">The answer</div>
+          <div class="tp-counter">
+            The $21.9 billion figure includes ordinary company income tax that any business in any sector would pay. Stripping that out, the resource-specific return to Australia — the PRRT and royalties that reflect the value of the resource itself — is a fraction of that figure.<br><br>
+            <strong>The PRRT has been called a systemic failure by the ATO itself.</strong> In 2020-21, Woodside, ExxonMobil, Shell, Chevron, INPEX and APLNG paid no tax at all on a collective $34 billion of income. In 2021-22, when record prices lifted their combined income to $56.3 billion, they paid just $454 million in total.<br><br>
+            <strong>The comparison is Norway.</strong> Norway applies a 78% effective tax rate to petroleum profits. Its industry is thriving, still attracting investment, and still expanding. If 78% is compatible with a healthy industry, the claim that 25% of export revenue is existential is not credible.<br><br>
+            <strong>Japan collected more from Australian gas than Australia did.</strong> Japan collected nearly $40 billion in taxes on Australian gas and coal imports over the past five years. Australia collected $7 billion from the PRRT over the same period on the same gas.
+          </div>
+          <div class="tp-stat">$34B combined income in 2020-21.<br>Tax paid: $0 across six of the largest operators.</div>
+        </div></div>
+      </div>
+
+      <div class="tp-card" onclick="toggleTp(this)">
+        <div class="tp-header">
+          <div class="tp-badge">Lobby claim</div>
+          <div class="tp-claim">"A 25% levy will kill future investment — projects like Scarborough and Browse will become uneconomic."</div>
+          <div class="tp-chevron">▾</div>
+        </div>
+        <div class="tp-body"><div class="tp-inner">
+          <div class="tp-counter-label">The answer</div>
+          <div class="tp-counter">
+            Three points dismantle this argument directly.<br><br>
+            <strong>First, the earnings floor removes the genuine risk.</strong> The 80% EBITDA cap means that in any year where the levy would genuinely exceed profit — a price crash scenario — the obligation is automatically limited. Projects cannot be made loss-making by the levy. The "uneconomic" scenario the lobby describes cannot occur under the AFRF design.<br><br>
+            <strong>Second, Norway invalidates the principle.</strong> Norway has taxed petroleum at 78% for decades while simultaneously being one of the most active offshore exploration environments in the world. Chevron, Shell, Equinor and others continue to invest there heavily. High resource taxes and investment are demonstrably compatible.<br><br>
+            <strong>Third, certainty has value.</strong> The gas lobby's own project finance teams know that a fixed, predictable, manipulation-proof levy is easier to model and finance than a profits tax whose effective rate is uncertain until year-end. Replacing the PRRT with a transparent revenue levy actually improves the bankability of long-life projects.
+          </div>
+          <div class="tp-stat">Scarborough: 67% complete as of December 2025.<br>Investment already committed before any levy change.</div>
+        </div></div>
+      </div>
+
+      <div class="tp-card" onclick="toggleTp(this)">
+        <div class="tp-header">
+          <div class="tp-badge">Lobby claim</div>
+          <div class="tp-claim">"Australia is different to Norway — you can't compare our geology, market structure, or sovereign risk profile."</div>
+          <div class="tp-chevron">▾</div>
+        </div>
+        <div class="tp-body"><div class="tp-inner">
+          <div class="tp-counter-label">The answer</div>
+          <div class="tp-counter">
+            The Norway comparison is not a geological argument — it is an institutional one. The relevant precedent is not that Norway has oil and Australia has LNG. The relevant precedent is that a resource-producing nation designed an independent sovereign fund with a neutral returns mandate, funded it through a resource levy, and created permanent national wealth that outlasts the resource.<br><br>
+            <strong>The AFRF adopts the institutional design, not the geology.</strong> The Future Fund Act already exists as an Australian precedent for exactly this kind of independent vehicle. The AFRF is an extension of a model Australia has already proved it can run.<br><br>
+            <strong>The "sovereign risk" argument runs both ways.</strong> The claim that Australia cannot raise a resource levy without damaging its sovereign risk profile implies that the current arrangement — where $149 billion in gas was exported over four years with minimal resource-specific return — is somehow the baseline investors expect to be protected. It is not. It is an anomaly in global terms, not a norm.
+          </div>
+          <div class="tp-stat">$149B in LNG exports over four years.<br>Total PRRT collected over the same period: ~$7B.</div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="inner">
+    <h2 class="cta-title">Australia has extracted<br><em>$149 billion</em> in gas exports<br>in four years.</h2>
+    <p class="cta-body">We hold almost nothing lasting from it. The AFRF changes that — building a permanent sovereign wealth fund whose annual dividend funds housing, the NDIS, and cost of living relief, without ever touching the principal. Norway built $3 trillion the same way.</p>
+    <div class="cta-pills">
+      <div class="pill pill-primary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</div>
+      <div class="pill pill-secondary" onclick="document.getElementById('dividend').scrollIntoView()">See the fiscal dividend</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// ── PLANTS & COMPANIES ───────────────────────────────────────────────────
+const plants = [
+  { name: 'North West Shelf LNG', loc: 'Karratha, WA', op: 'Woodside (50%)', cap: '16.9 MTPA', note: 'Approved to operate to 2070. Australia\'s oldest and largest facility.' },
+  { name: 'Gorgon LNG',           loc: 'Barrow Island, WA', op: 'Chevron (operator)', cap: '15.6 MTPA', note: 'Joint venture: Chevron, Shell, ExxonMobil.' },
+  { name: 'Wheatstone LNG',       loc: 'Onslow, WA', op: 'Chevron (operator)', cap: '8.9 MTPA', note: 'Joint venture: Chevron, Woodside, and others.' },
+  { name: 'Pluto LNG',            loc: 'Karratha, WA', op: 'Woodside (operator)', cap: '4.9 MTPA', note: 'Woodside-operated. Expansion linked to Scarborough project.' },
+  { name: 'Prelude FLNG',         loc: 'Browse Basin, WA', op: 'Shell (operator)', cap: '3.6 MTPA', note: 'World\'s largest floating LNG facility. Joint venture: Shell, INPEX, CPC, KOGAS.' },
+  { name: 'Ichthys LNG',          loc: 'Darwin, NT', op: 'INPEX (operator, 66%)', cap: '8.9 MTPA', note: 'Joint venture: INPEX, TotalEnergies (26%), Japanese buyers.' },
+  { name: 'Darwin LNG',           loc: 'Darwin, NT', op: 'Santos (operator)', cap: '3.7 MTPA', note: 'Restarted January 2026 using Barossa gas field. Joint venture: Santos, ConocoPhillips, INPEX, JERA, Tokyo Gas, Eni.' },
+  { name: 'Queensland Curtis LNG', loc: 'Gladstone, QLD', op: 'Shell (operator)', cap: '8.5 MTPA', note: 'World\'s first coal seam gas to LNG project.' },
+  { name: 'Gladstone LNG',        loc: 'Gladstone, QLD', op: 'Santos (operator)', cap: '7.8 MTPA', note: 'Joint venture: Santos, PETRONAS, Total, KOGAS.' },
+  { name: 'Australian Pacific LNG', loc: 'Gladstone, QLD', op: 'ConocoPhillips (op.)', cap: '9.0 MTPA', note: 'Joint venture: ConocoPhillips, Origin Energy, Sinopec.' },
+];
+
+const companies = [
+  { name: 'Woodside Energy', flag: '🇦🇺', role: 'Operator: NWS, Pluto, Wheatstone (part)', color: '#0b6b5e' },
+  { name: 'Chevron',         flag: '🇺🇸', role: 'Operator: Gorgon, Wheatstone', color: '#1a5080' },
+  { name: 'Shell',           flag: '🇬🇧', role: 'Operator: Prelude, QCLNG; partner: NWS', color: '#c8930a' },
+  { name: 'Santos',          flag: '🇦🇺', role: 'Operator: Darwin LNG, GLNG', color: '#8a3020' },
+  { name: 'INPEX',           flag: '🇯🇵', role: 'Operator: Ichthys LNG', color: '#4a3080' },
+  { name: 'ConocoPhillips',  flag: '🇺🇸', role: 'Operator: APLNG; partner: Darwin', color: '#2a6040' },
+];
+
+const pg = document.getElementById('plant-grid');
+const cg = document.getElementById('company-grid');
+if (pg) pg.innerHTML = plants.map(p => `
+  <div style="background:white;border-radius:10px;padding:14px;border:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:4px;align-items:start;">
+    <div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:2px;">${p.name}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:5px;">${p.loc} — ${p.op}</div>
+      <div style="font-size:11px;color:#555;line-height:1.55;">${p.note}</div>
+    </div>
+    <div style="background:var(--paper);border-radius:6px;padding:4px 8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:var(--teal);white-space:nowrap;align-self:start;">${p.cap}</div>
+  </div>`).join('');
+
+if (cg) cg.innerHTML = companies.map(c => `
+  <div style="background:white;border-radius:10px;padding:14px;border:1px solid var(--rule);border-top:3px solid ${c.color};">
+    <div style="font-size:18px;margin-bottom:5px;">${c.flag}</div>
+    <div style="font-size:13px;font-weight:700;margin-bottom:4px;">${c.name}</div>
+    <div style="font-size:11px;color:var(--muted);line-height:1.5;">${c.role}</div>
+  </div>`).join('');
+
+// ── LOBBY ACCORDION ───────────────────────────────────────────────────────
+function toggleTp(card) {
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.tp-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+// ── TABS ──────────────────────────────────────────────────────────────────
+function showTab(id, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+// ── CALCULATOR ────────────────────────────────────────────────────────────
+function fmtB(v) {
+  if (v >= 1000) return `$${(v/1000).toFixed(1)}T`;
+  return `$${v.toFixed(0)}B`;
+}
+
+function calcRender() {
+  const levyB  = +document.getElementById('sl-levy').value;
+  const ret    = +document.getElementById('sl-ret').value / 100;
+  const coPct  = +document.getElementById('sl-co').value / 100;
+
+  document.getElementById('lbl-levy').textContent = `$${levyB}B`;
+  document.getElementById('lbl-ret').textContent  = `${(ret*100).toFixed(0)}%`;
+  document.getElementById('lbl-co').textContent   = `${(coPct*100).toFixed(0)}%`;
+
+  const levyM   = levyB * 1000;  // to millions
+  const superCo = 4000000 * coPct;
+
+  const milestones = [5, 10, 15, 20];
+  const results = milestones.map(yr => {
+    let fund = 0;
+    for (let y = 1; y <= yr; y++) fund = (fund + levyM) * (1 + ret);
+    const superVal   = superCo * Math.pow(1 + ret, yr);
+    const levyContr  = levyM * yr;
+    const returns    = fund - levyContr;
+    return { yr, total: fund + superVal, levyContr, returns, superVal };
+  });
+
+  const maxVal = Math.max(...results.map(r => r.total));
+  const maxH   = 160;
+
+  document.getElementById('co-chart').innerHTML = results.map(r => {
+    const levyH   = Math.round(r.levyContr / maxVal * maxH);
+    const retH    = Math.round(r.returns / maxVal * maxH);
+    const superH  = Math.round(r.superVal / maxVal * maxH);
+    return `<div class="co-bar-col">
+      <div class="co-bar-val">${fmtB(r.total/1000)}</div>
+      <div class="co-bar-stack" style="height:${levyH+retH+superH}px">
+        <div class="cb-super" style="height:${superH}px"></div>
+        <div class="cb-return" style="height:${retH}px"></div>
+        <div class="cb-levy" style="height:${levyH}px"></div>
+      </div>
+      <div class="co-bar-yr">Yr ${r.yr}</div>
+    </div>`;
+  }).join('');
+
+  const yr10 = results[1];
+  const yr20 = results[3];
+  document.getElementById('yr20-val').textContent = fmtB(yr20.total/1000);
+  document.getElementById('yr20-sub').textContent =
+    `${fmtB(yr20.levyContr/1000)} contributions + ${fmtB(yr20.returns/1000)} returns + ${fmtB(yr20.superVal/1000)} super`;
+  document.getElementById('norway-proj').textContent = fmtB(yr20.total/1000);
+
+  const div10 = yr10.total / 1000 * 0.03;
+  const div20 = yr20.total / 1000 * 0.03;
+  document.getElementById('div-yr10').textContent = fmtB(div10);
+  document.getElementById('div-yr20').textContent = fmtB(div20);
+  renderAlloc(div20);
+}
+
+// ── FISCAL ALLOCATION CHART ───────────────────────────────────────────────
+const allocations = [
+  { label: 'Housing Supply',       icon: '🏠', color: '#0b6b5e', pct: 30 },
+  { label: 'NDIS & Essential Services', icon: '♿', color: '#1a5080', pct: 35 },
+  { label: 'Cost of Living Relief',icon: '🛒', color: '#c8930a', pct: 25 },
+  { label: 'Reserve / Contingency',icon: '🔒', color: '#888',    pct: 10 },
+];
+
+function renderAlloc(totalDivB) {
+  const barsEl  = document.getElementById('alloc-bars');
+  const cardsEl = document.getElementById('alloc-cards');
+  if (!barsEl || !cardsEl) return;
+
+  barsEl.innerHTML = allocations.map((a, i) => `
+    <div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:5px;">
+        <span>${a.icon} ${a.label}</span>
+        <span style="color:${a.color};font-family:'DM Mono',monospace;">${fmtB(totalDivB * a.pct/100)} / yr</span>
+      </div>
+      <div style="background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;">
+        <div style="height:100%;width:${a.pct}%;background:${a.color};border-radius:4px;transition:width 0.4s;"></div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px;">${a.pct}% of annual dividend</div>
+    </div>`).join('');
+
+  cardsEl.innerHTML = allocations.map(a => `
+    <div style="background:white;border-radius:10px;padding:16px;border:1px solid var(--rule);border-top:3px solid ${a.color};">
+      <div style="font-size:22px;margin-bottom:6px;">${a.icon}</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:4px;">${a.label}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:20px;font-weight:600;color:${a.color};">${fmtB(totalDivB * a.pct/100)}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:2px;">per year at fund maturity</div>
+    </div>`).join('');
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+  observer.observe(el);
+});
+
+calcRender();
+</script>
+</body>
+</html>
